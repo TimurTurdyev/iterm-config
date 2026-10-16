@@ -18,9 +18,17 @@ fi
 export BAT_THEME_DARK="Catppuccin Mocha"
 export BAT_THEME_LIGHT="Catppuccin Latte"
 
+source "${0:A:h}/tools.zsh"
+
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 else
   # Fallback без зависимостей: тот же минимальный символ.
   PROMPT='❯ '
+fi
+
+# Сводка один раз на окно/вкладку профиля timcode.ru; вложенные шеллы наследуют флаг.
+if [[ -o interactive && "$ITERM_PROFILE" == "timcode.ru" && -z "$MOTD_SHOWN" ]]; then
+  export MOTD_SHOWN=1
+  tools motd
 fi
