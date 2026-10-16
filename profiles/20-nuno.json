@@ -1,0 +1,10 @@
+{
+  "Profiles": [
+    {
+      "Name": "Nuno",
+      "Guid": "E6062EB1-1B56-46CB-A48F-76C3780B6D14",
+      "Dynamic Profile Parent GUID": "54396EC3-8667-4DEC-BD42-7F8F9DFA908A",
+      "Normal Font": "JetBrainsMonoNF-Regular 16"
+    }
+  ]
+}

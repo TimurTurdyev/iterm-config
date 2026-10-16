@@ -1,0 +1,26 @@
+# Минимальный промпт в духе Nuno Maduro: каталог + git, пустая строка, ❯.
+# format перечисляет модули явно - все остальные (package, nodejs и т.п.)
+# в таком режиме не рендерятся вовсе.
+
+add_newline = true
+
+format = """
+$directory$git_branch$git_status
+$character"""
+
+[character]
+success_symbol = "[❯](bold purple)"
+error_symbol = "[❯](bold red)"
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+[git_branch]
+format = "[$branch]($style) "
+style = "dimmed white"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "dimmed yellow"

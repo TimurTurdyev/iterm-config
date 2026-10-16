@@ -1,0 +1,28 @@
+# Промпт в тон профилю timcode.ru: как в терминале сайта, "user@host dir %".
+# Цвета именованные (green/red), чтобы брались из ANSI-палитры профиля.
+
+add_newline = false
+
+format = "$username@$hostname $directory$character"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "green"
+style_root = "red"
+
+[hostname]
+ssh_only = false
+trim_at = "."
+format = "[$hostname]($style)"
+style = "green"
+
+[directory]
+truncation_length = 1
+truncate_to_repo = false
+format = "[$path]($style) "
+style = "green"
+
+[character]
+success_symbol = "[%](green)"
+error_symbol = "[%](red)"

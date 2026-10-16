@@ -1,0 +1,53 @@
+{
+  "Profiles": [
+    {
+      "Name": "Base",
+      "Guid": "54396EC3-8667-4DEC-BD42-7F8F9DFA908A",
+      "Normal Font": "JetBrainsMonoNF-Regular 13",
+      "ASCII Anti Aliased": true,
+      "Non-ASCII Anti Aliased": true,
+      "Use Bold Font": true,
+      "Use Italic Font": true,
+      "Ambiguous Double Width": false,
+      "Horizontal Spacing": 1,
+      "Vertical Spacing": 1.1,
+      "Cursor Type": 1,
+      "Blinking Cursor": true,
+      "Scrollback Lines": 10000,
+      "Unlimited Scrollback": false,
+      "Minimum Contrast": 0.35,
+      "Use Cursor Guide": true,
+      "Use Bright Bold": true,
+      "Transparency": 0,
+      "Blur": false,
+      "Background Color": {
+        "Color Space": "sRGB",
+        "Red Component": 0.10196078431372549,
+        "Green Component": 0.10588235294117647,
+        "Blue Component": 0.14901960784313725,
+        "Alpha Component": 1
+      },
+      "Foreground Color": {
+        "Color Space": "sRGB",
+        "Red Component": 0.7529411764705882,
+        "Green Component": 0.792156862745098,
+        "Blue Component": 0.9607843137254902,
+        "Alpha Component": 1
+      },
+      "Cursor Color": {
+        "Color Space": "sRGB",
+        "Red Component": 0.7529411764705882,
+        "Green Component": 0.792156862745098,
+        "Blue Component": 0.9607843137254902,
+        "Alpha Component": 1
+      },
+      "Selection Color": {
+        "Color Space": "sRGB",
+        "Red Component": 0.2,
+        "Green Component": 0.27450980392156865,
+        "Blue Component": 0.48627450980392156,
+        "Alpha Component": 1
+      }
+    }
+  ]
+}
