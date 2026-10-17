@@ -23,7 +23,7 @@ _tools_project_names() { _tools_registry | cut -f1; }
 _tools_project_here() {
   local here="${PWD:A}" name pdir best="" best_len=0
   while IFS=$'\t' read -r name pdir _; do
-    pdir="${TOOLS_DEV}/${pdir}"
+    pdir="${TOOLS_DEV}/${pdir}"; pdir="${pdir:A}"
     [[ "$here" == "$pdir" || "$here" == "$pdir"/* ]] || continue
     (( ${#pdir} > best_len )) && { best=$name; best_len=${#pdir} }
   done <<< "$(_tools_registry)"

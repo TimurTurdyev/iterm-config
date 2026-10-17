@@ -35,7 +35,7 @@ _tools_project_port() {
   _tools_project "$name" && port=${reply[6]}
   if [[ -z "$port" || "$port" == "-" ]]; then
     url=$(_tools_env_get "$dir/.env" APP_URL)
-    port=${${(M)url%%:[0-9]##}#:}
+    port=${url##*:}; [[ "$port" == <-> ]] || port=""
   fi
   print "${port:-8000}"
 }
@@ -109,7 +109,7 @@ tools_env() {
   env_db=$(_tools_env_get "$file" DB_DATABASE)
   [[ "$reg_db" != "-" && -n "$env_db" && "${reg_db#*:}" != "$env_db" ]] &&
     print -P "${warn}база в реестре ${reg_db#*:}, в .env ${env_db}${off}"
-  val=$(_tools_env_get "$file" APP_URL); val=${${(M)val%%:[0-9]##}#:}
+  val=$(_tools_env_get "$file" APP_URL); val=${val##*:}; [[ "$val" == <-> ]] || val=""
   [[ "$reg_port" != "-" && -n "$val" && "$reg_port" != "$val" ]] &&
     print -P "${warn}порт в реестре ${reg_port}, в APP_URL ${val}${off}"
   return 0

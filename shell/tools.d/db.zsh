@@ -12,6 +12,7 @@ _tools_confirm() {
 # Параметры базы проекта в глобальные db_*; пароль остаётся в переменной, не печатается.
 _tools_db_load() {
   local dir="$1" file="$1/.env"
+  [[ -f "$file" ]] || { print -P "%F{red}в ${dir} нет .env%f" >&2; return 1 }
   db_conn=$(_tools_env_get "$file" DB_CONNECTION) || db_conn=sqlite
   db_host=$(_tools_env_get "$file" DB_HOST); db_host=${db_host:-127.0.0.1}
   db_port=$(_tools_env_get "$file" DB_PORT)
@@ -73,7 +74,7 @@ tools_db() {
     name=$(_tools_project_arg) || return 1
   fi
   dir=$(_tools_project_dir "$name") || return 1
-  _tools_db_load "$dir" || { print -P "${bad}${name}: в .env нет DB_DATABASE${off}"; return 1 }
+  _tools_db_load "$dir" || return 1
   if [[ "$db_conn" == sqlite ]]; then print -P "${label}${name}${off}  ${dim}sqlite ${db_name}${off}"
   else print -P "${label}${name}${off}  ${dim}${db_conn} ${db_name} @ ${db_host}:${db_port}${off}"; fi
   case "${action:-shell}" in

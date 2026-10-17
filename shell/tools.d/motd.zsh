@@ -195,6 +195,11 @@ tools_motd() {
   print -P "${label}${USER}@${HOST%%.*}${off}  macOS $(sw_vers -productVersion)  $(date '+%a %d %b, %H:%M')  ${dim}up ${uptime}${off}"
   print -P "${label}load${off} ${load}   ${label}mem${off} ${mem_used}/${mem_total} GB   ${label}disk${off} ${disk}   ${label}batt${off} ${batt:-n/a}"
   print -P "${label}net${off} ${ip:-нет сети} ${dim}${iface}${off}${vpn:+   ${label}vpn${off} ${vpn[*]}}   ${label}docker${off} ${docker}   ${git_line}"
+  local proj; proj=$(_tools_project_here 2>/dev/null)
+  if [[ -n "$proj" ]]; then
+    _tools_project "$proj"
+    print -P "${label}проект${off} ${proj}  ${dim}$(_tools_stack "${TOOLS_DEV}/${reply[2]}"), порт ${reply[6]}, база ${reply[7]}, деплой ${reply[5]}${off}"
+  fi
   print -P "${label}services${off} ${${up_services% }:-нет запущенных}"
   print -P "${label}ports${off} ${ports_line}"
   print -P "${dim}Подсказка: tools motd повторит сводку; разделы: tools ${(j:|:)MOTD_SECTIONS}; tools help${off}"
