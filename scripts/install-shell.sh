@@ -31,7 +31,7 @@ if ! grep -qF "$MARKER_START" "$ZSHRC"; then
 fi
 
 # Личные списки tools заводятся из шаблонов один раз и в git не попадают.
-for name in tools.hosts tools.projects; do
+for name in tools.hosts tools.projects tools.conf; do
   [ -f "$REPO_DIR/shell/$name" ] || cp "$REPO_DIR/shell/$name.example" "$REPO_DIR/shell/$name"
 done
 

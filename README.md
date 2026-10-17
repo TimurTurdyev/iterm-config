@@ -84,6 +84,16 @@ fetches a dump or images from the server, without `--apply` it only shows the co
 
 Network: `tools port <n> [kill]`, `tools dns flush`, `tools ssl <domain>`, `tools vpn`.
 
+Tunnels. When I want to leave through my own server instead of a VPN, `tools tunnel up` opens
+a SOCKS port on 127.0.0.1 over ssh (only ssh crosses the wire). `tools tunnel shell` gives a subshell
+where curl, git, composer and pip use it, `tools tunnel run <cmd>` does it for one command,
+`tools tunnel app chrome|firefox` starts a browser with a separate profile through it,
+`tools tunnel system on|off` switches the macOS system proxy. `tools tunnel all` sends every
+connection through the server with sshuttle, no per-app setup. `tools tunnel port L:host:R` and
+`tools tunnel expose L [R]` are plain ssh port forwards. `tools tunnel check` compares the public IP
+directly and through the tunnel, `tools tunnel down` closes things. The server alias lives in
+`shell/tools.conf`, personal, template next to it.
+
 Routes. With split tunneling a VPN sometimes pulls my own servers into the tunnel and ssh to them
 hangs. The fix is a host route through the physical gateway: `tools route up`. `tools route` shows
 where each address from `shell/tools.hosts` goes right now and flags routes left over from a previous

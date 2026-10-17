@@ -5,7 +5,7 @@ _tools() {
   local -a cmds projects aliases services
   local cur="${words[CURRENT]}"
   cmds=(help motd ports services net repos procs versions route port dns ssl vpn
-        proj go open serve env svc php db ssh deploy pull)
+        proj go open serve env svc php db ssh deploy pull tunnel)
   case $CURRENT in
     2) _describe -t commands 'команда tools' cmds ;;
     3)
@@ -19,8 +19,9 @@ _tools() {
         db) projects=(${(f)"$(_tools_project_names)"}); compadd dump restore "${projects[@]}" ;;
         ssh) aliases=(${(f)"$(_tools_ssh_aliases)"}); projects=(${(f)"$(_tools_project_names)"}); compadd list "${aliases[@]}" "${projects[@]}" ;;
         go|open|serve|env|deploy|pull|info) projects=(${(f)"$(_tools_project_names)"}); compadd "${projects[@]}" ;;
-        help) compadd сводка проекты запуск базы удалённое сеть маршруты ;;
+        help) compadd сводка проекты запуск базы удалённое туннели сеть маршруты ;;
         net) compadd public ;;
+        tunnel) compadd status up down check shell run app system all port expose ;;
       esac ;;
     4)
       case "${words[2]}" in
@@ -31,6 +32,7 @@ _tools() {
         pull) compadd db storage ;;
         port) compadd kill ;;
         php) compadd --global ;;
+        tunnel) case "${words[3]}" in app) compadd chrome firefox brave ;; system) compadd on off ;; all) compadd off ;; up|check|shell) compadd ${(f)"$(_tools_ssh_aliases)"} ;; esac ;;
       esac ;;
   esac
 }

@@ -5,6 +5,8 @@
 # TOOLS_DRY_RUN=1 печатает команды, меняющие систему, вместо запуска.
 
 TOOLS_DIR="${0:A:h}"
+# Личные настройки (сервер туннеля и т.п.), шаблон tools.conf.example.
+[[ -f "$TOOLS_DIR/tools.conf" ]] && source "$TOOLS_DIR/tools.conf"
 typeset -ga TOOLS_HELP
 TOOLS_HELP=()
 
@@ -21,7 +23,7 @@ tools_help_add() {
 typeset -gA TOOLS_ALIASES
 TOOLS_ALIASES=(routes route cert ssl)
 
-TOOLS_HELP_ORDER=(сводка проекты запуск базы удалённое сеть маршруты)
+TOOLS_HELP_ORDER=(сводка проекты запуск базы удалённое туннели сеть маршруты)
 
 tools_help() {
   local label dim warn bad info off; _tools_colors
