@@ -1,0 +1,14 @@
+# Реестр проектов для tools. Скопируйте в tools.projects и опишите свои клоны.
+# Поля через табуляцию, пустое поле "-":
+#   имя  путь от ~/Dev  ssh-алиас  удалённый путь  деплой  порт  база
+# деплой: make:<цель> локально, remote-make:<цель> по ssh в удалённом пути,
+#   dep:<репо>:<рецепт>:<stage>, ansible:<инвентарь>, cmd:<команда>, ci (подсказка).
+# база: mysql:<имя>, pg:<имя>, sqlite. Пароли только в .env проекта.
+
+# --- примеры всех видов ---
+site	projects/site/app	site	/var/www/site/public	make:deploy	5180	-
+shop	projects/shop/app	shop	/var/www/shop	remote-make:update	8000	mysql:shop
+shop-admin	projects/shop/admin	-	-	dep:projects/shop/infra:deploy/admin.php:prod	8001	pg:shop
+infra	projects/shop/infra	-	-	ansible:inventories/prod.yml	-	-
+notify	projects/notify	-	-	cmd:install/deploy.sh	-	-
+service	work/service/app	-	-	ci	8080	-

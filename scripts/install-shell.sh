@@ -30,4 +30,9 @@ if ! grep -qF "$MARKER_START" "$ZSHRC"; then
   } >>"$ZSHRC"
 fi
 
-done_msg "промпт настроен - откройте новую вкладку/окно терминала, чтобы увидеть ❯"
+# Личные списки tools заводятся из шаблонов один раз и в git не попадают.
+for name in tools.hosts tools.projects; do
+  [ -f "$REPO_DIR/shell/$name" ] || cp "$REPO_DIR/shell/$name.example" "$REPO_DIR/shell/$name"
+done
+
+done_msg "промпт и tools настроены - откройте новую вкладку терминала; списки tools: shell/tools.hosts, shell/tools.projects"

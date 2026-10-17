@@ -25,14 +25,14 @@ done_msg "готово"
 cat <<'EOF'
 
 Профили уже появились в iTerm2 (перезапуск не нужен):
-  Base, Tokyo Night, Catppuccin Mocha, Dracula,
-  Auto (Catppuccin) - Mocha/Latte по теме macOS, профиль по умолчанию
+  Base, Tokyo Night, Catppuccin Mocha, Dracula, TokyoNight Storm, Gruvbox Dark, Nord,
+  Default Dark+, Nuno, Auto (Catppuccin) - Mocha/Latte по теме macOS,
+  timcode.ru - профиль по умолчанию, со сводкой при открытии окна
 
 Попробовать вид:   Profiles > <имя профиля> (откроется новая вкладка)
 Сделать основным:  Settings > Profiles > выбрать профиль > Other Actions... > Set as Default
 
-Nuno-стиль:
-  Промпт ❯ появится в новой вкладке/окне терминала.
-  Тема Minimal и отступы требуют перезапуска iTerm2
-  (если шаг был пропущен - закройте iTerm2 и запустите scripts/apply-ui.sh).
+В новой вкладке: промпт Starship, сводка motd и команда tools (tools help).
+Тема Minimal и отступы требуют перезапуска iTerm2
+(если шаг был пропущен - закройте iTerm2 и запустите scripts/apply-ui.sh).
 EOF
