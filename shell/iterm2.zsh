@@ -20,6 +20,9 @@ export BAT_THEME_LIGHT="Catppuccin Latte"
 
 source "${0:A:h}/tools.zsh"
 
+# Go-версия tools: шим для cd и автодополнение, если бинарник установлен.
+command -v tim >/dev/null 2>&1 && eval "$(tim init zsh)"
+
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 else
