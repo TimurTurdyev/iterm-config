@@ -18,9 +18,7 @@ fi
 export BAT_THEME_DARK="Catppuccin Mocha"
 export BAT_THEME_LIGHT="Catppuccin Latte"
 
-source "${0:A:h}/tools.zsh"
-
-# Go-версия tools: шим для cd и автодополнение, если бинарник установлен.
+# tim (github.com/TimurTurdyev/tim): шим для cd, автодополнение, строка о проекте при cd.
 command -v tim >/dev/null 2>&1 && eval "$(tim init zsh)"
 
 if command -v starship >/dev/null 2>&1; then
@@ -30,8 +28,9 @@ else
   PROMPT='❯ '
 fi
 
-# Сводка один раз на окно/вкладку профиля timcode.ru; вложенные шеллы наследуют флаг.
-if [[ -o interactive && "$ITERM_PROFILE" == "timcode.ru" && -z "$MOTD_SHOWN" ]]; then
+# Сводка tim один раз на окно/вкладку профиля timcode.ru; вложенные шеллы наследуют флаг.
+if [[ -o interactive && "$ITERM_PROFILE" == "timcode.ru" && -z "$MOTD_SHOWN" ]] && command -v tim >/dev/null 2>&1; then
   export MOTD_SHOWN=1
-  tools motd
+  # Без раздела project: строку о проекте уже печатает хук tim при входе в папку.
+  tim motd system net ports services
 fi

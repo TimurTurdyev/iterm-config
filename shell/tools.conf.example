@@ -1,4 +1,0 @@
-# Личные настройки tools (zsh-синтаксис). Скопируйте в tools.conf.
-# Сервер для туннелей: алиас из ~/.ssh/config. Порт локального SOCKS.
-TOOLS_TUNNEL_HOST=myserver
-TOOLS_TUNNEL_PORT=1080

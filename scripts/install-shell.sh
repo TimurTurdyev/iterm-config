@@ -30,9 +30,7 @@ if ! grep -qF "$MARKER_START" "$ZSHRC"; then
   } >>"$ZSHRC"
 fi
 
-# Личные списки tools заводятся из шаблонов один раз и в git не попадают.
-for name in tools.hosts tools.projects tools.conf; do
-  [ -f "$REPO_DIR/shell/$name" ] || cp "$REPO_DIR/shell/$name.example" "$REPO_DIR/shell/$name"
-done
+command -v tim >/dev/null 2>&1 ||
+  warn "tim не найден: сводка и команды проектов появятся после установки (go install github.com/TimurTurdyev/tim@latest)"
 
-done_msg "промпт и tools настроены - откройте новую вкладку терминала; списки tools: shell/tools.hosts, shell/tools.projects"
+done_msg "промпт настроен - откройте новую вкладку терминала"

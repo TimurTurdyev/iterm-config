@@ -32,7 +32,7 @@ cat <<'EOF'
 Попробовать вид:   Profiles > <имя профиля> (откроется новая вкладка)
 Сделать основным:  Settings > Profiles > выбрать профиль > Other Actions... > Set as Default
 
-В новой вкладке: промпт Starship, сводка motd и команда tools (tools help).
+В новой вкладке: промпт Starship и, если установлен tim, сводка при открытии окна (tim motd).
 Тема Minimal и отступы требуют перезапуска iTerm2
 (если шаг был пропущен - закройте iTerm2 и запустите scripts/apply-ui.sh).
 EOF
